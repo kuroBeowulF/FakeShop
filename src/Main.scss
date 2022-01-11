@@ -1,0 +1,235 @@
+.root {
+  .menuButtom {
+    background-color: rgb(82, 73, 104);
+    color: white;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px white;
+  }
+  .basketCounter {
+    background-image: url("./Asset/img/shopping.svg");
+    color: white;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+  }
+  .basketIcon {
+    background-image: url("./Asset/img/shopping.svg");
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+  .menoIcon {
+    background-image: url("./Asset/img/menu.svg");
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+  }
+  .closeMenu {
+    background-image: url("./Asset/img/close.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .setting {
+    background-image: url("./Asset/img/setting.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+  .dnd {
+    background-color: rgb(155, 36, 36);
+  }
+  .wlcPage {
+    width: 100%;
+    .bgHeight {
+      height: 600px;
+      overflow: hidden;
+      position: relative;
+
+      .bg1 {
+        background-image: url("./Asset/img/7.jpeg");
+        background-repeat: no-repeat;
+      }
+      .bg2 {
+        background-image: url("./Asset/img/6.jpeg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        left: 0;
+        bottom: 60%;
+        transform: rotate(-20deg);
+      }
+      .bg3 {
+        background-image: url("./Asset/img/5.jpeg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .bg4 {
+        background-image: url("./Asset/img/4.jpeg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .bg5 {
+        background-image: url("./Asset/img/3.jpeg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .bg6 {
+        background-image: url("./Asset/img/2.jpeg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+    .featuresBox {
+      height: 100%;
+      border-radius: 5px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    .featuresBox:hover {
+      color: white;
+      background-color: orange;
+    }
+    .discountBox {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .discountBox:hover {
+      color: white;
+      background-color: orange;
+    }
+    .fontZz {
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    }
+    .colums {
+      height: 800px;
+      padding: 0 10px;
+      margin-top: 10px;
+      align-items: flex-end;
+      position: relative;
+    }
+    .colum {
+      border-radius: 10px 10px 0 0;
+    }
+    .swiperBox {
+      width: 100%;
+      top: 0;
+      right: 7%;
+      height: 100px;
+      margin-top: 20px;
+    }
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 80%;
+      height: 90%;
+      object-fit: contain;
+    }
+
+    .swiper-slide {
+      width: 20%;
+    }
+
+    .swiper-slide:nth-child(2n) {
+      width: 20%;
+    }
+
+    .swiper-slide:nth-child(3n) {
+      width: 20%;
+    }
+  }
+  .productDetailsBox {
+    font-size: 18px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    .proPrice {
+      margin-top: 20px;
+    }
+    .prodescription {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    .proBtn {
+      margin-left: 15%;
+      background-color: rgb(219, 183, 93);
+      border-radius: 5px;
+    }
+    .proBtn:hover {
+      color: #fff;
+      background-color: black;
+    }
+    .proRate {
+      margin-top: 15px;
+    }
+    .proCount {
+      margin-top: 15px;
+    }
+  }
+  .basket {
+    .count {
+      height: 40px;
+      width: 40px;
+      font-size: 12px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .count:hover {
+      color: #fff;
+    }
+  }
+  .CheckingStepsBox {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .CheckingSteps {
+      width: 70%;
+    }
+  }
+  .darkCover {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999999;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
