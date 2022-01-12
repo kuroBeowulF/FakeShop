@@ -1,7 +1,7 @@
 import { Button, Input } from "antd";
 const LogPage = () => {
   return (
-    <div className="h-screen flex justify-center pt-48">
+    <form className="h-screen flex justify-center pt-48">
       <ul className="border-2 border-gray p-10 h-2/5">
         <li name="username">
           <label htmlFor="username">User Name</label>
@@ -13,7 +13,7 @@ const LogPage = () => {
         </li>
         <Button className="mt-3">Log in</Button>
       </ul>
-    </div>
+    </form>
   );
 };
 export default LogPage;

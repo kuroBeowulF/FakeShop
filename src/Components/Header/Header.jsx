@@ -1,42 +1,36 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useRef } from "react";
-import { Popover, Menu, Dropdown, Button, Space } from "antd";
+import { useRef, useState, useEffect } from "react";
+import { Popover, Menu, Dropdown, Space, Input } from "antd";
 const Header = () => {
-  const menu = (
-    <Menu style={{ left: 30, top: 15 }}>
-      <Menu.Item>
-        <NavLink to="/Loging">
-          <div className="menuButtom w-28 h-8 flex justify-center items-center text-lg font-light">
-            Log in
-          </div>
-        </NavLink>
-      </Menu.Item>
-      <Menu.Item>
-        <NavLink to="/CheckingOrder">
-          <div className="text-center text-lg font-light">Track Order</div>
-        </NavLink>
-      </Menu.Item>
-      <Menu.Item>
-        <NavLink to="/Dashbord">
-          <div className="text-center text-lg font-light">Dashbord</div>
-        </NavLink>
-      </Menu.Item>
-      <Menu.Item>
-        <div className="text-center text-lg font-light">Search</div>
-      </Menu.Item>
-    </Menu>
-  );
-
   const menuRef = useRef();
+  const search = useRef();
+  const [searchInp, setSearchInp] = useState();
+  const [searchResult, setSearchResult] = useState([]);
+
   const ShowMenuRes = () => {
     menuRef.current.style.display = "block";
   };
   const CloseMenuRes = () => {
     menuRef.current.style.display = "none";
   };
+  const showSearch = () => {
+    search.current.style.display = "flex";
+  };
+  const hideSearch = () => {
+    search.current.style.display = "none";
+  };
+
   const { selectedProducts } = useSelector((state) => state.Basket);
-  console.log(selectedProducts);
+  const { data } = useSelector((state) => state.Fetch);
+  useEffect(() => {
+    data.length > 0 &&
+      setSearchResult(
+        data.filter((item) =>
+          item.title.includes(searchInp.length > 0 ? searchInp : "!!!!")
+        )
+      );
+  }, [searchInp]);
   const keys = Object.keys(selectedProducts);
   const content = keys.length
     ? keys.map((id) => (
@@ -58,15 +52,78 @@ const Header = () => {
         </div>
       ))
     : null;
-
+  const Result = (
+    <div className="max-h-64 overflow-auto">
+      {searchResult.length > 0
+        ? searchResult.map((item) => (
+            <div className="flex mt-3 " key={item.id}>
+              <img
+                src={item.image}
+                alt="Zooo!!"
+                width={"30px"}
+                height={"30px"}
+              />
+              <span className="ml-2 mt-2">
+                {item.title}{" "}
+                <span className="text-red-600">
+                  {item.count > 1 ? `x${item.count}` : ""}
+                </span>
+              </span>
+            </div>
+          ))
+        : ""}
+    </div>
+  );
+  const menu = (
+    <Menu style={{ left: 30, top: 15 }}>
+      <Menu.Item>
+        <NavLink to="/Loging">
+          <div className="menuButtom w-28 h-8 flex justify-center items-center text-lg font-light">
+            Log in
+          </div>
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item>
+        <NavLink to="/CheckingOrder">
+          <div className="text-center text-lg font-light">Track Order</div>
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item>
+        <NavLink to="/Dashbord">
+          <div className="text-center text-lg font-light">Dashbord</div>
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item>
+        <div className="text-center text-lg font-light" onClick={showSearch}>
+          Search
+        </div>
+      </Menu.Item>
+    </Menu>
+  );
   return (
     <div
       className={
         " flex shadow-md shadow-black w-full bg-slate-500 h-28 items-center"
       }
     >
-      <div className="font-serif text-xl font-bold text-white lg:w-3/6 w-full pl-12">
-        Welcome to Rophy Shop
+      <div className="lg:w-3/6 w-full px-12 flex justify-between">
+        <div className="font-serif sm:text-xl text-sm font-bold text-white w-1/2">
+          Welcome to Rophy Shop
+        </div>
+        <div className="search flex justify-center" ref={search}>
+          <div
+            onClick={hideSearch}
+            className="text-slate-500 font-bold cursor-pointer text-md flex jusetify-center items-center bg-gray-300"
+          >
+            Close
+          </div>
+          <Popover content={Result}>
+            <Input
+              value={searchInp}
+              onChange={(e) => setSearchInp(e.target.value)}
+            ></Input>
+          </Popover>
+        </div>
       </div>
       <div
         className="menoIcon lg:hidden block cursor-pointer"
@@ -99,8 +156,11 @@ const Header = () => {
             <li className="text-center text-black mt-3">Track</li>
           </NavLink>
           <NavLink to="/Dashbord">
-            <div className="text-center text-black mt-3">Dashbord</div>
+            <li className="text-center text-black mt-3">Dashbord</li>
           </NavLink>
+          <li className="text-center text-black mt-3" onClick={showSearch}>
+            Search
+          </li>
         </ul>
       </div>
       <ul className="lg:flex hidden w-2/6 h-1/3 justify-around items-end px-20">

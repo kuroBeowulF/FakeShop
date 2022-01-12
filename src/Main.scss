@@ -5,6 +5,11 @@
     border-radius: 4px;
     box-shadow: 1px 1px 1px white;
   }
+  .search {
+    width: 40%;
+    height: 40px;
+    display: none;
+  }
   .basketCounter {
     background-image: url("./Asset/img/shopping.svg");
     color: white;
