@@ -15,7 +15,7 @@ const Dashbord = () => {
   const RemoveFunc = (id) => {
     dispatch(DoFetch.removeProduct(id));
     alert(
-      `Product with ID : ${id} , successfully removed From Data , but FakeStoreApi didnt suport Delete and Update`
+      `Product with ID : ${id} , successfully removed From Data , but FakeStoreApi do not suport Delete and Update`
     );
   };
   const showModalAddNew = () => {
@@ -100,7 +100,7 @@ const Dashbord = () => {
     return (
       <div className="min-h-screen">
         <Modal
-          title="Basic Modal"
+          title="Add New Product"
           visible={isModalVisible2}
           onOk={handleOkAddNew}
           onCancel={handleCancelAddNew}
@@ -138,7 +138,7 @@ const Dashbord = () => {
           ></Input>
         </Modal>
         <Modal
-          title="Basic Modal"
+          title="Edit Product"
           visible={isModalVisible}
           onOk={handleOk}
           onCancel={handleCancel}

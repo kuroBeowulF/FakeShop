@@ -23,7 +23,9 @@ const fetchReducer = (state = intialstate, { type, payload }) => {
     case actionTypes.UPDATE_ITEM:
       console.log(state.loading);
       return { ...state, updatedItem: payload.item, loading: payload.loading };
-
+    case actionTypes.ADD_NEW_PRO:
+      console.log(state.loading);
+      return { ...state, loading: payload.loading };
     default:
       return state;
   }
